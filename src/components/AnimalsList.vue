@@ -41,9 +41,7 @@
             persistent-hint
           ></v-select>
         </v-col>
-        <v-col :cols="3">
-          <v-btn>Load img to search...</v-btn>
-        </v-col>
+        <ImageSearcher />
       </v-row>
       <v-row dense>
         <v-col
@@ -59,13 +57,14 @@
 </template>
 
 <script>
-
+  import ImageSearcher from '@/components/views/ImageSearcher';
   import AnimalView from '@/components/views/AnimalView'
 
   export default {
     name: 'AnimalsList',
     components: {
-      AnimalView
+      AnimalView,
+      ImageSearcher
     },
     data() {
       return {

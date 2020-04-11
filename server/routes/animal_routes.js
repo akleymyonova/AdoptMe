@@ -47,4 +47,9 @@ module.exports = function(app, db) {
       }
     });
   });
+
+  app.post('/animalByPhoto', (req, res) => {
+    console.log(req.files.img);
+    res.send({})
+  })
 };
