@@ -11,10 +11,10 @@
   "dependencies": {
     "@google-cloud/vision": "^1.11.0",
     "@tensorflow/tfjs-node": "^1.7.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "express-fileupload": "^1.1.7-alpha.2",
+    "express-fileupload": "^1.1.10",
     "ml-knn": "^3.0.0",
     "mongodb": "^3.5.3"
   },
