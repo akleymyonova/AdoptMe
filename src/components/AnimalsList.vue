@@ -78,6 +78,10 @@
 
   const MENU_CLASS = 'app-menu';
 
+  const woolTypes = ['shorthair', 'longhair', 'feathers'];
+  const compabilities = ['complete', 'partial', 'none'];
+  const genders = ['Male', 'Female'];
+
   export default {
     name: 'AnimalsList',
     components: {
@@ -96,23 +100,24 @@
         searchText: ''
       }
     },
-    mounted() {
-      this.$http.get('http://localhost:3000/animals/').then(response => {
-        if(!response.data) {
-          console.log('get error while getting animals')
-          return
-        }
-        const animals = response.data;
-        this.$store.dispatch('Animals/initAnimals', { animals })
-        this.animalTypes = [...new Set(this.animalTypesValues)];
-        this.genders = this.genderValues;
-        this.wooltypes = this.woolTypeValues;
-        this.childrenCompabilities = this.childrenCompabilityValues;
-        this.filteredAnimalsInfo = this.shortAnimalsInfo;
-      })
-      .catch(err => {
-        console.log(err);
-      })
+    async mounted() {
+      let response
+      try {
+        response = await this.$http.get('http://localhost:3000/animals/');
+      } catch (err) {
+        console.log('Error while mounting AnimalsList', err);
+      }
+      if(!response || !response.data) {
+        console.log('get error while getting animals')
+        return
+      }
+      const animals = response.data;
+      this.$store.dispatch('Animals/initAnimals', { animals })
+      this.animalTypes = [...new Set(this.animalTypesValues)];
+      this.genders = this.genderValues;
+      this.wooltypes = this.woolTypeValues;
+      this.childrenCompabilities = this.childrenCompabilityValues;
+      this.filteredAnimalsInfo = this.shortAnimalsInfo;
     },
     computed: {
       shortAnimalsInfo() {
@@ -128,7 +133,6 @@
         ))
       },
       woolTypeValues() {
-        const woolTypes = ['shorthair', 'longhair', 'feathers'];
         return woolTypes.map(type => (
           {
             text: this.$t(type),
@@ -137,7 +141,6 @@
         ))
       },
       childrenCompabilityValues() {
-        const compabilities = ['complete', 'partial', 'none'];
         return compabilities.map(compability => (
           {
             text: this.$t(compability),
@@ -146,7 +149,6 @@
         ))
       },
       genderValues() {
-        const genders = ['Male', 'Female'];
         return genders.map(gender => (
           {
             text: this.$t(gender),

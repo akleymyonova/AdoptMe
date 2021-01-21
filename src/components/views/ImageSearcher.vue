@@ -34,19 +34,21 @@ export default {
       }
       reader.readAsDataURL(photo);
     },
-    $_getMostSimilarPhoto(img) {
+    async $_getMostSimilarPhoto(img) {
       const data = JSON.stringify({ img });
-      this.$http.post('http://localhost:3000/animalByPhoto/', data, {
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      })
-      .then(res => {
+      try {
+        const res = await this.$http.post('http://localhost:3000/animalByPhoto/', data, {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        })
         const mostSimilar = res.data.map(({ product }) => product);
         this.$emit('imageSearcherEvent', {
           mostSimilar
         })
-      })
+      } catch (err) {
+        console.log('Error while getting similar photo');
+      }
     }
   }
 }

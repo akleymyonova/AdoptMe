@@ -95,31 +95,34 @@
         animal: null
       }
     },
-    mounted() {
+    async mounted() {
       this.id = this.$route.params.id;
-      this.$http.get(`http://localhost:3000/animal/${this.id}`).then(response => {
+      try {
+        const response = await this.$http.get(`http://localhost:3000/animal/${this.id}`);
         const animalInfo = response.data;
         this.$store.dispatch('Animals/initAnimalFullInfo', { animalInfo });
         this.animal = this.$store.getters['Animals/getAnimalById'](this.id);
-      })
-      
+      } catch (err) {
+        console.log('Error on mounting AnimalInfo:', err);
+      }      
     },
     methods: {
       adopt() {
         this.showUserForm = true;
       },
-      confirmAdoption({ info }) {
+      async confirmAdoption({ info }) {
         this.showUserForm = false;
         info.animalName = this.animal.name;
         const data = JSON.stringify(info);
-        this.$http.post('http://localhost:3000/userInfo/', data, {
-          headers: {
-            'Content-Type': 'application/json',
-          }
-        })
-        .then((res) => {
-          console.log(res);
-        })
+        try {
+          await this.$http.post('http://localhost:3000/userInfo/', data, {
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          })
+        } catch (err) {
+          console.log('Error while confirming adoption')
+        }
       }
     },
     computed: {

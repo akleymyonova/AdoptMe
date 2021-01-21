@@ -107,9 +107,6 @@ export default {
       appName: 'AdoptMe'
     }
   },
-  created() {
-    console.log(this.toolbarItems)
-  },
   computed: {
     isShownBackIcon() {
       return true;
