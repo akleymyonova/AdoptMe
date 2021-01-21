@@ -91,7 +91,6 @@
       return {
         id: '',
         showUserForm: false,
-        src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg',
         colors: ['primary', 'secondary', 'green', 'pink', 'orange'],
         animal: null
       }

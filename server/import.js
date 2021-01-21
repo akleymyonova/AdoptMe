@@ -3,7 +3,7 @@ const vision = require('@google-cloud/vision');
 const projectId = 'adoptme-276812';
 const location = 'us-west1';
 const productSetId = 'shelter';
-const keyFilename = `E:\\UNIVERSITY\\Diploma\\diploma\\AdoptMe-8e15d11cf1fc.json`;
+const keyFilename = `..\\..\\AdoptMe-8e15d11cf1fc.json`;
 // Creates a client
 const client = new vision.ProductSearchClient({projectId, keyFilename});
 
@@ -243,14 +243,8 @@ async function createProductSet() {
 }
 
 async function createProduct() {
-  /**
-   * TODO(developer): Uncomment the following line before running the sample.
-   */
-  // const projectId = 'Your Google Cloud project Id';
-  // const location = 'A compute region name';
-  // const productId = 'Id of the product';
-  // const productDisplayName = 'Display name of the product';
-  // const productCategory = 'Catoegory of the product';
+  const projectId = 'Your Google Cloud project Id';
+  const location = '';
 
   // Resource path that represents Google Cloud Platform location.
   const locationPath = client.locationPath(projectId, location);
@@ -287,32 +281,6 @@ async function addProductToProductSet(productId) {
   console.log(`Product added to product set.`);
 }
 
-async function createReferenceImage(productId, gcsUri, referenceImageId) {
-  /**
-   * TODO(developer): Uncomment the following line before running the sample.
-   */
-  // const projectId = 'Your Google Cloud project Id';
-  // const location = 'A compute region name';
-  // const productId = 'Id of the product';
-  // const referenceImageId = 'Id of the reference image';
-  // const gcsUri = 'Google Cloud Storage path of the input image';
-
-  const formattedParent = client.productPath(projectId, location, productId);
-
-  const referenceImage = {
-    uri: gcsUri,
-  };
-
-  const request = {
-    parent: formattedParent,
-    referenceImage: referenceImage,
-    referenceImageId: referenceImageId,
-  };
-
-  const [response] = await client.createReferenceImage(request);
-  console.log(`response.name: ${response.name}`);
-  console.log(`response.uri: ${response.uri}`);
-}
 
 export default {
   init

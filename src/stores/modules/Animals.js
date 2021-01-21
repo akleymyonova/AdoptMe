@@ -19,7 +19,9 @@ const getters = {
 
 const mutations = {
   setAnimals(state, animals) {
-    state.animals = animals;
+    state.animals = animals.map(animal => {
+      return AnimalListViewFactory.create(animal)
+    });;
   },
   setFullAnimalInfo(state, animal) {
     const animalIndex = state.animals.findIndex(an =>
@@ -31,11 +33,6 @@ const mutations = {
 
 const actions = {
   initAnimals({ commit }, { animals }) {
-    // make mapping to views in getters
-    animals = animals.map(animal => {
-      console.log(animal)
-      return AnimalListViewFactory.create(animal)
-    });
     commit('setAnimals', animals);
   },
   initAnimalFullInfo({ commit }, { animalInfo }) {

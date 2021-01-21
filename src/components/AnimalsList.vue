@@ -118,18 +118,6 @@
       shortAnimalsInfo() {
         return this.$store.getters['Animals/getAllAnimals']();
       },
-      // filteredAnimalsInfo() {
-      //   // if(!this.searchText) {
-      //   //   return this.shortAnimalsInfo;
-      //   // }
-      //   // const textToSearch = this.searchText.toLowerCase();
-      //   // return this.shortAnimalsInfo.filter(info => (
-      //   //  (this.animalTypes.some((type) => type === info.animalType)) &&
-      //   //  (this.genders.some((gender) => gender === info.gender)) &&
-      //   //  (info.shortInfo.toLowerCase().includes(textToSearch) ||
-      //   //  info.name.toLowerCase().includes(textToSearch)) 
-      //   // ))
-      // },
       animalTypesValues() {
         const types = this.shortAnimalsInfo.map(info => info.animalType)
         return Array.from(new Set(types)).map(type => (

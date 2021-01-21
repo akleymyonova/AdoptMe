@@ -19,6 +19,6 @@ mongoClient.connect((err, database) => {
   }
   require('./routes')(app, database);
   app.listen(port, () => {
-    console.log('We are live on port:' + port);
+    console.log('listening to port:' + port);
   })
 })
