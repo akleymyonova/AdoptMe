@@ -1,22 +1,6 @@
 <template>
   <v-app>
-    <v-card>
-      <v-app-bar
-        color="deep-purple accent-4"
-        hide-on-scroll
-        dark
-      >
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-        <v-toolbar-title>AdoptMe</v-toolbar-title>
-
-        <v-spacer></v-spacer>
-
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-      </v-app-bar>
-    </v-card>
+    <ApplicationToolbar />
     
     <router-view></router-view>
   </v-app>
@@ -27,13 +11,17 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import VueI18n from 'vue-i18n';
+import ApplicationToolbar from '@/components/views/ApplicationToolbar';
 
 Vue.use(VueAxios, axios);
 Vue.use(Vuex);
+Vue.use(VueI18n);
 
 export default {
   name: 'App',
   components: {
+    ApplicationToolbar
   },
   data() {
     return {

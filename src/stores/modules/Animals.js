@@ -9,6 +9,9 @@ const getters = {
   getAnimalById: state => id => {
     return state.animals.find(animal => animal.id === id);
   },
+  getAnimalByPhotoId: state => photoId => {
+    return state.animals.find(animal => animal.photoId === photoId)
+  },
   getAllAnimals: state => () => {
     return state.animals;
   }
@@ -29,7 +32,10 @@ const mutations = {
 const actions = {
   initAnimals({ commit }, { animals }) {
     // make mapping to views in getters
-    animals = animals.map(animal => AnimalListViewFactory.create(animal));
+    animals = animals.map(animal => {
+      console.log(animal)
+      return AnimalListViewFactory.create(animal)
+    });
     commit('setAnimals', animals);
   },
   initAnimalFullInfo({ commit }, { animalInfo }) {

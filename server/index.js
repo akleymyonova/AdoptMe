@@ -6,6 +6,7 @@ const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({limit: '50mb'}));
 app.use(fileUpload());
 
 const mongoClient = new MongoClient(db.url, { useUnifiedTopology: true });

@@ -11,6 +11,8 @@ class AnimalInfoView {
     this.sex = params.sex;
     this.birthDate = params.birthDate || 'We doesn`t know how old is it';
     this.alreadyInShelter = dayjs(parseInt(params.gotInShelterDate)).toNow(true);
+    this.wooltype = params.wooltype;
+    this.compabilityWithChildren = params.compabilityWithChildren;
     this.age = dayjs(parseInt(params.birthDate)).toNow(true);
     this.photo = params.photo || null;
     this.weight = params.weight || null;

@@ -2,13 +2,14 @@
   <v-card>
     <v-img
       :src="animal.photo"
+      :position="'center top'"
       class="white--text align-end"
       gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-      height="300px"
+      height="400px"
       @click="onAnimalClick"
     >
-      <v-card-title class="animal-info">{{ `${animal.name}, ${animal.age}` }}</v-card-title>
-      <v-card-text>{{ `${animal.animalType}, ${animal.gender}` }}</v-card-text>
+      <v-card-title class="animal-info">{{ `${$t(animal.name)}, ${animal.age}` }}</v-card-title>
+      <v-card-text>{{ `${$t(animal.animalType)}, ${$t(animal.gender)}` }}</v-card-text>
     </v-img>
 
     <v-card-actions>

@@ -10,6 +10,9 @@ class AnimalListView {
     this.alreadyInShelter = dayjs(parseInt(params.gotInShelterDate)).toNow(true);
     this.age = dayjs(parseInt(params.birthDate)).toNow(true);
     this.photo = params.photo;
+    this.photoId = params.photoId;
+    this.wooltype = params.wooltype;
+    this.compabilityWithChildren = params.compabilityWithChildren;
     this.animalType = params.animalType;
     this.gender = _getGender(params.sex);
     this.shortInfo = params.shortInfo;

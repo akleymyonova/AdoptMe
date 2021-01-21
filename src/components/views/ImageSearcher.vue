@@ -1,14 +1,14 @@
 <template>
-  <v-col :cols="3">
+  <div>
     <v-file-input
       :id="FILE_INPUT_ID"
-      label="Load image to search..."
+      :label="$t('LoadImageText')"
       filled
       show-size
       prepend-icon="mdi-camera"
       @change="onImageChange"
     ></v-file-input>
-  </v-col>
+  </div>
 </template>
 
 <script>
@@ -24,19 +24,28 @@ export default {
   methods: {
     onImageChange(photo) {
       if (!photo) {
+        this.$emit('imageSearcherEvent', {});
         return;
       }
-      const formData = new FormData();
-      formData.append('img', photo);
-      this.$http.post('http://localhost:3000/animalByPhoto/', formData, {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const img = reader.result;
+        this.$_getMostSimilarPhoto(img);
+      }
+      reader.readAsDataURL(photo);
+    },
+    $_getMostSimilarPhoto(img) {
+      const data = JSON.stringify({ img });
+      this.$http.post('http://localhost:3000/animalByPhoto/', data, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'application/json',
         }
-      }).then(response => {
-        console.log(response)
       })
-      .catch(err => {
-        console.log(err);
+      .then(res => {
+        const mostSimilar = res.data.map(({ product }) => product);
+        this.$emit('imageSearcherEvent', {
+          mostSimilar
+        })
       })
     }
   }

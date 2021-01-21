@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "adoptme-276812",
+  "private_key_id": "8e15d11cf1fca803b8716a68e6dc1944c56cd2f5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDubL4f/87F56Q8\ntRmXfi4rXShjht//XL6W6k4O7cpv6pnRoGxpmplt0zYeJZoP98vX3wjV5JeNe5bo\nRtY5URGj9YlWM6DH+jbwDmRc7TfUQ7mdcApFhn/gIfq0RqzicW/IKUhbEW57t79T\ns81deMla5fAPmfb3FWAt66YppXvqlO8/MTsuyRgFX2Q7G/Jt3p1juY2lEML4tRcp\nt+lQi1JBoNBSdIo/3KnN/FOJHPRC++T5+n4EpuTpkoA0fEs/Tdd7ur4KMtasqeKz\n1SCb8ypaO8IfiBIRb1pDG0Z6gA8WQAFYXSEK+tMvOVx+ae5HsudbQWOWMpOoVFMd\n3LvM4J3TAgMBAAECggEATk0SJ4ooSyBm9LT5IaKD4SPoBr+dwsyfnwp19jsr15Nx\nTsHjuM7YApRx2na44POdU1jhGvXGu+VRyxiwdARmybTylIfCDsrizfW8CjSxuBlB\n1S2dgfXI+z/NiPUJBBkC//Zm19misijHQeLz1/W6EwseytDipYS0oIAaguThDEmY\n/opCNmN3VM5+QeCY5P4b3LegodiUG/Ol6htTycLpTGKwgh7cNePC6p+5CDnlU4PR\njbVu5RTzT6sxpDARaXxGtUVQI/mFfrSJxYIiM7QlbvROjRQsOcJRTIS+BlDKBsMB\nr9j73lpTA8D0YpoglP07HerTf5xPrNTlLCLu8yIgiQKBgQD36TNnp+jjFiE/wDHl\noyXPU2Q3pOZabBIe4AVgeuNTvGyFWgJhkPnkVZJtnBQRUTcYbTGTdWqdZHNO531h\nClzAnYdZv+xy5NUMldMzksuta9jEpZl8XE3Z0pwTX50T0Xn0jn7pz8HsVmvBVCMv\n16VBBlbOe1QGtPluV59JOtP6RQKBgQD2NE3RbP9rrjgNSCzTt1umn+EW2TKUjUIL\nkkX0ADGTB0ere5NgKTHbypJRpBB37Ut3BiRdLaUcUxm6u/wHgfXzp4vhTqToZhiO\nfU4u9KT4guO3M1GvIFnhOZSjdRtVGXFGNzpK43bUq+ojhrBHh4v0G0DxEO2R01dB\nA5DHFBCFNwKBgQDDK/HPWk6rcQGuGdZujlm29lUAxa6gY1KEwiMZiMWtZ7sb5PfY\n7fT+ASxtZKIb3A9/CIAuMhNEZA+vf+miWzEYZyxmyQUSkvrzlISYpqn5Ft2qOyEx\n2c1kfj1nty+HqbPUh9Z8ppZqRMNCicXF5YTxQ1dV6ZwGR7XTW+JIGatG7QKBgHTb\nSnw2Yd04Kb6UHUK36rZheDKiEJHVoh1f5ff0B5Ojhu7rjn27z8Bkm6JIXtCtPn5V\n2fin65BQGQw6oVrm4lgtlATykO8FVm57Jxq+X3bcmTyhDQo0LrTp4ZTbxodTtiH/\noJle8U3r8wu9p/mralAIh4Bj6n6mcumWyabT7SttAoGAFCB/HhgwInP3cnjOT/J6\nTUaShuFuGHmhlD9n5qW2SQeMhkWnKFxtcILs1F0bhkQCX+TgLB5VDxtXAwuuwnlP\nVlSGKAvZJzV9kBE9FhjzIL5+upqRyOLjKrPP33W2dTtLKZTmqmfiEdhed7QiiYb2\nVbB4OpTLHkc681V7C32iek8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "adoptme-animal-shelter-676@adoptme-276812.iam.gserviceaccount.com",
+  "client_id": "108893173316668424483",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/adoptme-animal-shelter-676%40adoptme-276812.iam.gserviceaccount.com"
+}

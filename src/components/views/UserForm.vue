@@ -1,9 +1,9 @@
 <template>
   <v-dialog v-model="dialog" width="500">
-    <v-card>
+    <v-card class="user-form-dialog">
       <v-text-field
         v-model="name"
-        label="Name and surname"
+        :label="$t('NameAndSurname')"
         name="login"
         prepend-icon="person"
         type="text"
@@ -12,7 +12,7 @@
       <v-text-field
         v-model="phone"
         id="phone"
-        label="Phone number"
+        :label="$t('PhoneNumber')"
         name="phone"
         prepend-icon="phone"
         type="text"
@@ -21,14 +21,14 @@
       <v-text-field
         v-model="email"
         id="mail"
-        label="Email"
+        :label="$t('Email')"
         name="mail"
         prepend-icon="email"
         type="text"
       ></v-text-field>
 
       <div class="button-wrapper">
-        <v-btn @click="confirmAdoption">Confirm adoption</v-btn>
+        <v-btn @click="confirmAdoption">{{ $t('ConfirmAdoption') }}</v-btn>
       </div>
     </v-card>
   </v-dialog>
@@ -50,7 +50,12 @@
     },
     methods: {
       confirmAdoption() {
-        this.$emit('confirmAdoption');
+        const info = {
+          name: this.name,
+          phone: this.phone,
+          email: this.email
+        }
+        this.$emit('confirmAdoption', { info });
       }
     }
   }
@@ -59,5 +64,9 @@
 <style lang="scss" scoped>
   .button-wrapper {
     text-align: center;
+  }
+
+  .user-form-dialog {
+    padding: 20px;
   }
 </style>

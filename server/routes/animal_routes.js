@@ -1,4 +1,5 @@
 const ObjectId = require('mongodb').ObjectId;
+const productSearch = require('../productSearch');
 const FullAnimalInfo = require('../classes/Animals').FullAnimalInfo;
 const PartialAnimalInfo = require('../classes/Animals').PartialAnimalInfo;
 
@@ -48,8 +49,10 @@ module.exports = function(app, db) {
     });
   });
 
-  app.post('/animalByPhoto', (req, res) => {
-    console.log(req.files.img);
-    res.send({})
+  app.post('/animalByPhoto', async (req, res) => {
+    const url = req.body.img.split(',')[1];
+    const results = await productSearch.getSimilarProductsFile(url);
+    console.log(results)
+    res.send(results)
   })
 };

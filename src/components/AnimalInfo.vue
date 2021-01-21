@@ -11,10 +11,10 @@
           </v-card>
         </v-col>
         <v-col cols="7">
-          <v-card>
+          <v-card class="info-wrapper">
             <div>
               <div class="font-weight-bold display-3">
-                {{animal.name}}
+                {{$t(animal.name)}}
               </div>
               <div>
                 <span class="text-center" v-for="(trait, index) in animal.characterTraits" :key="index">
@@ -26,41 +26,51 @@
               <div class="display-1">
                 <v-row>
                   <v-col cols="6">
-                    {{animal.animalType}}
+                    {{$t(animal.animalType)}}
                   </v-col>
                   <v-col cols="6">
-                    {{'Breed: ' + animal.breed}}
-                  </v-col>
-                </v-row>
-              </div>
-              <div class="headline">
-                <v-row>
-                  <v-col cols="6">
-                    {{'Age: ' + animal.age}}
-                  </v-col>
-                  <v-col cols="6">
-                    {{'Already in shelter: ' + animal.alreadyInShelter}}
+                    {{`${$t('Breed')}: ${$t(animal.breed)}`}}
                   </v-col>
                 </v-row>
               </div>
               <div class="headline">
                 <v-row>
                   <v-col cols="6">
-                    {{'Gender: ' + gender}}
+                    {{`${$t('Age')}: ${animal.age}`}}
                   </v-col>
                   <v-col cols="6">
-                    {{'Weight: ' + animal.weight}}
+                    {{`${$t('AlreadyInShelter')}: ${animal.alreadyInShelter}`}}
+                  </v-col>
+                </v-row>
+              </div>
+              <div class="headline">
+                <v-row>
+                  <v-col cols="6">
+                    {{`${$t('Gender')}: ${$t(gender)}`}}
+                  </v-col>
+                  <v-col cols="6">
+                    {{`${$t('Weight')}: ${animal.weight}`}}
                   </v-col>
                 </v-row>
               </div>
             </div>
+             <div class="headline">
+                <v-row>
+                  <v-col cols="6">
+                    {{`${$t('WoolType')} ${$t(animal.wooltype)}`}}
+                  </v-col>
+                  <v-col cols="6">
+                    {{`${$t('ChildrenCompability')} ${$t(animal.compabilityWithChildren)}`}}
+                  </v-col>
+                </v-row>
+              </div>
             <div class="headline">
               {{animal.shortInfo + animal.shortInfo + animal.shortInfo}}
             </div>
-            <div class="button-wrapper">
-              <v-btn x-large color="teal" dark @click="adopt">I want to adopt you!</v-btn>
-            </div>
           </v-card>
+          <div class="button-wrapper">
+              <v-btn x-large color="teal" dark @click="adopt">{{ $t('AdoptButton') }}</v-btn>
+            </div>
         </v-col>
       </v-row>
     </div>
@@ -99,8 +109,18 @@
       adopt() {
         this.showUserForm = true;
       },
-      confirmAdoption() {
+      confirmAdoption({ info }) {
         this.showUserForm = false;
+        info.animalName = this.animal.name;
+        const data = JSON.stringify(info);
+        this.$http.post('http://localhost:3000/userInfo/', data, {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        })
+        .then((res) => {
+          console.log(res);
+        })
       }
     },
     computed: {
@@ -117,7 +137,12 @@
 </script>
 
 <style lang="scss" scoped>
+  .info-wrapper {
+    padding: 20px;
+  }
+
   .button-wrapper {
+    margin: 20px;
     text-align: center;
   }
 </style>

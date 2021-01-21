@@ -1,4 +1,5 @@
 const animalRoutes = require('./animal_routes');
+const user_routes = require('./user_routes');
 
 module.exports = function(app, db) {
   
@@ -8,4 +9,5 @@ module.exports = function(app, db) {
     next();
   });
   animalRoutes(app, db);
+  user_routes(app, db);
 };
