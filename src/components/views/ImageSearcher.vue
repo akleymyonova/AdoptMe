@@ -37,7 +37,7 @@ export default {
     async $_getMostSimilarPhoto(img) {
       const data = JSON.stringify({ img });
       try {
-        const res = await this.$http.post('http://localhost:3000/animalByPhoto/', data, {
+        const res = await this.$http.post(`${this.$store.state.AppContext.serverUrl}/animalByPhoto/`, data, {
           headers: {
             'Content-Type': 'application/json',
           }

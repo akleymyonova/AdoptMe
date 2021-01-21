@@ -98,7 +98,7 @@
     async mounted() {
       this.id = this.$route.params.id;
       try {
-        const response = await this.$http.get(`http://localhost:3000/animal/${this.id}`);
+        const response = await this.$http.get(`${this.$store.state.AppContext.serverUrl}/animal/${this.id}`);
         const animalInfo = response.data;
         this.$store.dispatch('Animals/initAnimalFullInfo', { animalInfo });
         this.animal = this.$store.getters['Animals/getAnimalById'](this.id);
@@ -115,7 +115,7 @@
         info.animalName = this.animal.name;
         const data = JSON.stringify(info);
         try {
-          await this.$http.post('http://localhost:3000/userInfo/', data, {
+          await this.$http.post(`${this.$store.state.AppContext.serverUrl}/userInfo/`, data, {
             headers: {
               'Content-Type': 'application/json',
             }

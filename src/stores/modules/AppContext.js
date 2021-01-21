@@ -1,5 +1,6 @@
 const state = {
-  isOpenedSearch: false
+  isOpenedSearch: false,
+  serverUrl: 'http://localhost:3000'
 }
 
 const getters = {

@@ -103,7 +103,7 @@
     async mounted() {
       let response
       try {
-        response = await this.$http.get('http://localhost:3000/animals/');
+        response = await this.$http.get(`${this.$store.state.AppContext.serverUrl}/animals/`);
       } catch (err) {
         console.log('Error while mounting AnimalsList', err);
       }
