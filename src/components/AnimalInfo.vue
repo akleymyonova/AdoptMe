@@ -6,7 +6,7 @@
         <v-col cols="5">
           <v-card>
             <v-img
-              :src="animal.photo">
+              :src="require(`@/assets/images/${animal.photo}`)">
             </v-img>
           </v-card>
         </v-col>
@@ -39,7 +39,7 @@
                     {{`${$t('Age')}: ${animal.age}`}}
                   </v-col>
                   <v-col cols="6">
-                    {{`${$t('AlreadyInShelter')}: ${animal.alreadyInShelter}`}}
+                    {{`${$t('AlreadyInShelter')} ${animal.alreadyInShelter}`}}
                   </v-col>
                 </v-row>
               </div>
@@ -65,7 +65,7 @@
                 </v-row>
               </div>
             <div class="headline">
-              {{animal.shortInfo + animal.shortInfo + animal.shortInfo}}
+              {{ animal.detailedInfo }}
             </div>
           </v-card>
           <div class="button-wrapper">

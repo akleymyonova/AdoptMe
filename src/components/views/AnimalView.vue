@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-img
-      :src="animal.photo"
+      :src="require(`@/assets/images/${animal.photo}`)"
       :position="'center top'"
       class="white--text align-end"
       gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
@@ -13,7 +13,7 @@
     </v-img>
 
     <v-card-actions>
-      <v-card-text>{{ animal.alreadyInShelter | capitalize  }}</v-card-text>
+      <v-card-text>{{ `В притулку вже ${animal.alreadyInShelter}` }}</v-card-text>
 
       <v-spacer></v-spacer>
 
@@ -29,7 +29,7 @@
         <v-divider></v-divider>
 
         <v-card-text>
-          {{ animal.shortInfo }}
+          {{ animal.shortInfo | capitalize }}
         </v-card-text>
       </div>
     </v-expand-transition>
@@ -45,12 +45,6 @@
       }
     },
     name: 'MainPage',
-    data() {
-      return {
-       src: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUXGR4XFxgXFxgYFxcWGxcZFxYbFhcYHSggGx0lGxg=',
-        
-      }
-    },
     filters: {
       capitalize: function (value) {
         if (!value) return ''

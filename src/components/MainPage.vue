@@ -27,7 +27,7 @@
         <v-carousel-item
           v-for="(item, i) in items"
           :key="i"
-          :src="item.src"
+          :src="require(`@/assets/images/${item.src}`)"
         >
         </v-carousel-item>
       </v-carousel>
