@@ -21,7 +21,7 @@ const mutations = {
   setAnimals(state, animals) {
     state.animals = animals.map(animal => {
       return AnimalListViewFactory.create(animal)
-    });;
+    });
   },
   setFullAnimalInfo(state, animal) {
     const animalIndex = state.animals.findIndex(an =>
