@@ -1,6 +1,4 @@
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-dayjs.extend(relativeTime)
+import { getTimeToNow } from '@/helpers/time'
 
 class AnimalInfoView {
   constructor(params) {
@@ -10,14 +8,15 @@ class AnimalInfoView {
     this.animalType = params.animalType;
     this.sex = params.sex;
     this.birthDate = params.birthDate || 'We doesn`t know how old is it';
-    this.alreadyInShelter = dayjs(parseInt(params.gotInShelterDate)).toNow(true);
+    this.alreadyInShelter = getTimeToNow(params.gotInShelterDate)
     this.wooltype = params.wooltype;
     this.compabilityWithChildren = params.compabilityWithChildren;
-    this.age = dayjs(parseInt(params.birthDate)).toNow(true);
+    this.age = getTimeToNow(params.birthDate);
     this.photo = params.photo || null;
     this.weight = params.weight || null;
     this.shortInfo = params.shortInfo;
     this.characterTraits = params.characterTraits || [];
+    this.detailedInfo = params.detailedInfo;
   }
 }
 

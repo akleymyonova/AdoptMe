@@ -1,14 +1,13 @@
 import Genders from '@/enums/Genders'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-dayjs.extend(relativeTime)
+
+import {getTimeToNow} from '@/helpers/time'
 
 class AnimalListView {
   constructor(params) {
     this.id = params.id;
     this.name = params.name;
-    this.alreadyInShelter = dayjs(parseInt(params.gotInShelterDate)).toNow(true);
-    this.age = dayjs(parseInt(params.birthDate)).toNow(true);
+    this.alreadyInShelter = getTimeToNow(params.gotInShelterDate);
+    this.age = getTimeToNow(params.birthDate);
     this.photo = params.photo;
     this.photoId = params.photoId;
     this.wooltype = params.wooltype;
